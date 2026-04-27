@@ -5,51 +5,70 @@
     box-sizing: border-box;
 }
 
-/* Background elegant gradient */
+/* Background dengan gambar */
 body {
     font-family: 'Segoe UI', sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+
+    background: url("images/silverwolf.jpg") no-repeat center center/cover;
+    position: relative;
     color: white;
+}
+
+/* Overlay gelap + blur */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 0;
 }
 
 /* Container */
 .container {
+    position: relative;
+    z-index: 1;
     text-align: center;
 }
 
-/* Name */
+/* Nama */
 h1 {
     font-size: 56px;
     margin-bottom: 30px;
     letter-spacing: 2px;
 }
 
-/* Cards layout */
+/* Layout box */
 .boxes {
     display: flex;
     gap: 25px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-/* Glass card effect */
+/* Card elegan */
 .card {
     width: 250px;
     padding: 25px;
     border-radius: 20px;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 /* Hover effect */
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.7);
 }
 
 /* Text */
@@ -69,7 +88,7 @@ button {
     border-radius: 20px;
     border: none;
     background: white;
-    color: #2a5298;
+    color: #333;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
@@ -83,27 +102,19 @@ button:hover {
 .footer {
     margin-top: 30px;
     font-size: 14px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
-/* Animations */
+/* Animasi */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 1s ease forwards;
 }
 
-.delay {
-    animation-delay: 0.3s;
-}
-
-.delay2 {
-    animation-delay: 0.6s;
-}
-
-.delay3 {
-    animation-delay: 0.9s;
-}
+.delay { animation-delay: 0.3s; }
+.delay2 { animation-delay: 0.6s; }
+.delay3 { animation-delay: 0.9s; }
 
 @keyframes fadeIn {
     to {
